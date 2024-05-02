@@ -5,22 +5,52 @@ using UnityEngine;
 public class MakeCubes : MonoBehaviour
 {
 
+    public int maxDistance;
+
+    public int centerRange;
+
     public GameObject cubePrefab;
+
+    public List<GameObject> planet = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
-    {
-       for (int i = -7; i < 7; i++) {
-        for (int j = -7; j < 7; j++) {
-            for (int k = -7; k < 7; k++) {
-                Vector3 location = new Vector3(i, j, k);
-                if (location.magnitude <= 5 + Random.Range(0, 2) ||
-                (location - new Vector3(0, 2, 0)).magnitude <= 5 + Random.Range(0, 2)) {
-        Instantiate(cubePrefab, location, Quaternion.identity);
+    {   
+        NewPlanet();
+        StartCoroutine(ResetPlanet());
+    }
+
+    IEnumerator ResetPlanet() {
+        while(true) {
+            yield return new WaitForSeconds(1);
+            DeletePlanet();
+            NewPlanet();
         }
+    }
+
+    void NewPlanet() {
+        Vector3 xCent = new Vector3(centerRange / 2.0f - Random.Range(0, centerRange), 0, 0); 
+        Vector3 yCent = new Vector3(0, centerRange / 2.0f - Random.Range(0, centerRange), 0); 
+        Vector3 zCent = new Vector3(0, 0, centerRange / 2.0f - Random.Range(0, centerRange)); 
+        for (int i = -10; i < 10; i++) {
+            for (int j = -10; j < 10; j++) {
+                for (int k = -10; k < 10; k++) {
+                    Vector3 location = new Vector3(i, j, k);
+                    if ((location - xCent).magnitude <= maxDistance + Random.Range(0, 2) ||
+                        (location - yCent).magnitude <= maxDistance + Random.Range(0, 2) ||
+                        (location - zCent).magnitude <= maxDistance + Random.Range(0, 2)) {
+                        planet.Add(Instantiate(cubePrefab, location, Quaternion.identity));
+                    }
+                }
             }
+        } 
+    }
+
+    void DeletePlanet() {
+        foreach (GameObject go in planet) {
+            Destroy(go);
         }
-       } 
+        planet.Clear();
     }
 
     // Update is called once per frame

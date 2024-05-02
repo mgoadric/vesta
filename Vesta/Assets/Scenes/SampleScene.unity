@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &20702723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 20702724}
+  m_Layer: 0
+  m_Name: AsteroidCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &20702724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20702723}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567879210}
   - component: {fileID: 567879209}
+  - component: {fileID: 567879211}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -395,8 +427,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc14d907582a5488c8e071709478c25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistance: 3
+  centerRange: 10
   cubePrefab: {fileID: 4372143930243182984, guid: 14f7f02dd4af542bda7e2761ea2f2c11,
     type: 3}
+  planet: []
 --- !u!4 &567879210
 Transform:
   m_ObjectHideFlags: 0
@@ -412,6 +447,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &567879211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567879208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60aced956e7064e4eb66574411c32c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 330585545}
+  target: {fileID: 20702724}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
