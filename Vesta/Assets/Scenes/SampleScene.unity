@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -282,6 +283,23 @@ Skybox:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: a07c26edf76b74537ab29884ac14c475, type: 2}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60aced956e7064e4eb66574411c32c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 20702724}
+  speed: 20
+  zoomed: 0
+  zoomGoal: {x: 0, y: 0, z: 0}
+  delta: 10
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +425,6 @@ GameObject:
   m_Component:
   - component: {fileID: 567879210}
   - component: {fileID: 567879209}
-  - component: {fileID: 567879211}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -431,7 +448,7 @@ MonoBehaviour:
   centerRange: 10
   cubePrefab: {fileID: 4372143930243182984, guid: 14f7f02dd4af542bda7e2761ea2f2c11,
     type: 3}
-  planet: []
+  asteroid: []
 --- !u!4 &567879210
 Transform:
   m_ObjectHideFlags: 0
@@ -447,21 +464,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &567879211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567879208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60aced956e7064e4eb66574411c32c40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Camera: {fileID: 330585545}
-  target: {fileID: 20702724}
-  speed: 10
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

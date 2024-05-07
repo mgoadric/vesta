@@ -11,24 +11,24 @@ public class MakeCubes : MonoBehaviour
 
     public GameObject cubePrefab;
 
-    public List<GameObject> planet = new List<GameObject>();
+    public List<GameObject> asteroid = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {   
-        NewPlanet();
-        StartCoroutine(ResetPlanet());
+        NewAsteroid();
+        //StartCoroutine(ResetPlanet());
     }
 
     IEnumerator ResetPlanet() {
         while(true) {
             yield return new WaitForSeconds(1);
-            DeletePlanet();
-            NewPlanet();
+            DeleteAsteroid();
+            NewAsteroid();
         }
     }
 
-    void NewPlanet() {
+    void NewAsteroid() {
         Vector3 xCent = new Vector3(centerRange / 2.0f - Random.Range(0, centerRange), 0, 0); 
         Vector3 yCent = new Vector3(0, centerRange / 2.0f - Random.Range(0, centerRange), 0); 
         Vector3 zCent = new Vector3(0, 0, centerRange / 2.0f - Random.Range(0, centerRange)); 
@@ -39,18 +39,18 @@ public class MakeCubes : MonoBehaviour
                     if ((location - xCent).magnitude <= maxDistance + Random.Range(0, 2) ||
                         (location - yCent).magnitude <= maxDistance + Random.Range(0, 2) ||
                         (location - zCent).magnitude <= maxDistance + Random.Range(0, 2)) {
-                        planet.Add(Instantiate(cubePrefab, location, Quaternion.identity));
+                        asteroid.Add(Instantiate(cubePrefab, location, Quaternion.identity));
                     }
                 }
             }
         } 
     }
 
-    void DeletePlanet() {
-        foreach (GameObject go in planet) {
+    void DeleteAsteroid() {
+        foreach (GameObject go in asteroid) {
             Destroy(go);
         }
-        planet.Clear();
+        asteroid.Clear();
     }
 
     // Update is called once per frame
