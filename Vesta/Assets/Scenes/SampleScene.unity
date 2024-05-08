@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 20702724}
-  speed: 20
+  speed: 50
   zoomed: 0
   zoomGoal: {x: 0, y: 0, z: 0}
   delta: 10
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 3
   centerRange: 10
-  cubePrefab: {fileID: 4372143930243182984, guid: 14f7f02dd4af542bda7e2761ea2f2c11,
+  cubePrefab: {fileID: 5395195506863304705, guid: 0a38354910b9549838689721d0d779d0,
     type: 3}
   asteroid: []
 --- !u!4 &567879210
