@@ -6,12 +6,14 @@ using UnityEngine;
 public class AsteroidSurface : MonoBehaviour
 {
 
-    public Renderer renderer;
+    new public Renderer renderer;
 
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
+        renderer.material.color = Color.grey;
+        
     }
 
     // Update is called once per frame
@@ -28,6 +30,6 @@ public class AsteroidSurface : MonoBehaviour
     }
 
     void OnMouseExit() {
-        renderer.material.color = Color.white;
+        renderer.material.color = Color.gray;
     }
 }

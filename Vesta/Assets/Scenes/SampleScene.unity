@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 567879210}
   - component: {fileID: 567879209}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Asteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -448,7 +448,6 @@ MonoBehaviour:
   centerRange: 10
   cubePrefab: {fileID: 5395195506863304705, guid: 0a38354910b9549838689721d0d779d0,
     type: 3}
-  asteroid: []
 --- !u!4 &567879210
 Transform:
   m_ObjectHideFlags: 0

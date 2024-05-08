@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MakeCubes : MonoBehaviour
+public class Asteroid : MonoBehaviour
 {
 
     public int maxDistance;
@@ -11,11 +11,11 @@ public class MakeCubes : MonoBehaviour
 
     public GameObject cubePrefab;
 
-    public List<GameObject> asteroid = new List<GameObject>();
+    public Dictionary<Vector3, GameObject> asteroid = new Dictionary<Vector3, GameObject>();
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {  
         NewAsteroid();
         //StartCoroutine(ResetPlanet());
     }
@@ -39,7 +39,7 @@ public class MakeCubes : MonoBehaviour
                     if ((location - xCent).magnitude <= maxDistance + Random.Range(0, 2) ||
                         (location - yCent).magnitude <= maxDistance + Random.Range(0, 2) ||
                         (location - zCent).magnitude <= maxDistance + Random.Range(0, 2)) {
-                        asteroid.Add(Instantiate(cubePrefab, location, Quaternion.identity));
+                        asteroid.Add(location, Instantiate(cubePrefab, location, Quaternion.identity, transform));
                     }
                 }
             }
@@ -47,7 +47,7 @@ public class MakeCubes : MonoBehaviour
     }
 
     void DeleteAsteroid() {
-        foreach (GameObject go in asteroid) {
+        foreach (GameObject go in asteroid.Values) {
             Destroy(go);
         }
         asteroid.Clear();
