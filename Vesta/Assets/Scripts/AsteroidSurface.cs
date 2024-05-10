@@ -8,6 +8,8 @@ public class AsteroidSurface : MonoBehaviour
 
     new public Renderer renderer;
 
+    public GameObject mine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,10 @@ public class AsteroidSurface : MonoBehaviour
         //If your mouse hovers over the GameObject with the script attached, output this message
         renderer.material.color = Color.red;
         //Debug.Log("Mouse is over GameObject.");
+    }
+
+    void OnMouseDown() {
+        Instantiate(mine, transform);
     }
 
     void OnMouseExit() {
