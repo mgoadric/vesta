@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92044357637134179ba1e8dd85ce904b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minesAvailable: 0
+  minePrefab: {fileID: 5113700842664104566, guid: 977b96b4cd20f4dabb99683f530bc59a,
+    type: 3}
 --- !u!4 &204687104
 Transform:
   m_ObjectHideFlags: 0
@@ -459,6 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 3
   centerRange: 10
+  rotateSpeed: 0
   cubePrefab: {fileID: 5395195506863304705, guid: 0a38354910b9549838689721d0d779d0,
     type: 3}
 --- !u!4 &567879210

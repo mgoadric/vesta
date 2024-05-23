@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
 
     public Dictionary<Vector3, GameObject> mines = new Dictionary<Vector3, GameObject>();
 
+    public Dictionary<string, int> available;
+
+    public GameObject minePrefab;
+
     private void Awake() {
         _instance = this;
     }
@@ -18,7 +22,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        available = new Dictionary<string, int>();
+        available["mine"] = 5;
     }
 
     // Update is called once per frame

@@ -9,6 +9,8 @@ public class Asteroid : MonoBehaviour
 
     public int centerRange;
 
+    public float rotateSpeed;
+
     public GameObject cubePrefab;
 
     public Dictionary<Vector3, GameObject> asteroid = new Dictionary<Vector3, GameObject>();
@@ -56,6 +58,6 @@ public class Asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.RotateAround(transform.position, transform.up, rotateSpeed * Time.deltaTime);
     }
 }
