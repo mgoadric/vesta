@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -13,6 +16,10 @@ public class GameManager : MonoBehaviour
 
     public Dictionary<string, int> available;
 
+    public GameObject availableButton;
+
+    public GameObject availableContent;
+
     public GameObject minePrefab;
 
     private void Awake() {
@@ -24,11 +31,21 @@ public class GameManager : MonoBehaviour
     {
         available = new Dictionary<string, int>();
         available["mine"] = 5;
+        available["habitat"] = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        foreach (String s in available.Keys) {
+            var child = availableContent.transform.Find(s);
+            if (child == null) {
+                GameObject temp = Instantiate(availableButton, availableContent.transform);
+                temp.name = s;
+                temp.transform.Find("Label").GetComponent<TextMeshProUGUI>().text = s + ": " + available[s];
+            } else {
+                child.Find("Label").GetComponent<TextMeshProUGUI>().text = s + ": " + available[s];
+            }
+        }
     }
 }
