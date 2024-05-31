@@ -58,6 +58,8 @@ public class Asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // looks cool, but starts to interfere with the placement overlap detection. 
+        // Need better way
         transform.RotateAround(transform.position, transform.up, rotateSpeed * Time.deltaTime);
     }
 }

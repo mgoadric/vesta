@@ -8,13 +8,18 @@ using UnityEngine.AI;
 public class AsteroidSurface : MonoBehaviour
 {
 
-    new public Renderer renderer;
+    new Renderer renderer;
+
+    public Vector3 startPosition;
+    public Vector3 startForward;
 
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
         renderer.material.color = Color.grey;
+        startPosition = transform.position;
+        startForward = transform.forward;
         
     }
 
@@ -32,7 +37,7 @@ public class AsteroidSurface : MonoBehaviour
     }
 
     void OnMouseDown() {
-        GameManager.Instance.AddBuilding(transform);
+        GameManager.Instance.AddBuilding(transform, startPosition, startForward);
     }
 
     void OnMouseExit() {

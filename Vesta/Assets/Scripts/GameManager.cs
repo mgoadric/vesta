@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get { return _instance; } }
 
+    public GameObject asteroidPrefab;
+
     public Dictionary<Vector3, GameObject> buildings = new Dictionary<Vector3, GameObject>();
 
     public List<Construct> constructs = new List<Construct>();
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instantiate(asteroidPrefab);
         available = new Dictionary<string, int>();
         available["mine"] = 5;
         available["habitat"] = 2;
@@ -61,10 +64,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddBuilding(Transform surface) {
+    public void AddBuilding(Transform surface, Vector3 startPos, Vector3 startForward) {
         GameObject construct = SelectedConstruct();
         if (construct != null) {
-            Vector3 tempPosition = surface.position + (surface.forward * -0.5f);
+            Vector3 tempPosition = startPos + (startForward * -0.5f);
             Vector3Int constructPosPotential = new Vector3Int(Mathf.RoundToInt(tempPosition.x), 
                                             Mathf.RoundToInt(tempPosition.y), 
                                             Mathf.RoundToInt(tempPosition.z));
