@@ -71,6 +71,9 @@ public class GameManager : MonoBehaviour
             if (!buildings.ContainsKey(constructPosPotential)) {
                 buildings.Add(constructPosPotential, Instantiate(construct, surface));
                 available[selected]--;
+                if (available[selected] == 0) {
+                    selected = "none";
+                }
             }
         }
     }
@@ -88,6 +91,16 @@ public class GameManager : MonoBehaviour
                 b.onClick.AddListener(delegate { SetSelected(child.gameObject.name); });
             } 
             child.Find("Label").GetComponent<TextMeshProUGUI>().text = s + ": " + available[s];
+            if (s == selected) {
+                child.GetComponent<Image>().color = Color.red;
+            } else {
+                child.GetComponent <Image>().color = Color.white;
+            }
+            if (available[s] > 0) {
+                child.GetComponent<Button>().interactable = true;
+            } else {
+                child.GetComponent<Button>().interactable = false;
+            }
          }
     }
 }
