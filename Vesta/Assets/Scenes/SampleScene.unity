@@ -154,20 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 5160780218411608221, guid: d85eb2bfd0c814ce5a5606c11bc33cb9,
     type: 3}
-  constructs:
-  - name: mine
-    prefab: {fileID: 5113700842664104566, guid: 977b96b4cd20f4dabb99683f530bc59a,
-      type: 3}
-  - name: storage
-    prefab: {fileID: 4281913887711263275, guid: 81297256b60244d308751b7781ef02d2,
-      type: 3}
-  - name: habitat
-    prefab: {fileID: 2039013621460887204, guid: d3c875c4c107c4476bf671acc812dfa3,
-      type: 3}
-  availableButton: {fileID: 7139131853153575200, guid: a9a1b72bbb1f14781b6ef07c539831ae,
-    type: 3}
-  availableContent: {fileID: 2107741873}
-  selected: none
+  constructGUI: {fileID: 1648214052}
 --- !u!4 &204687104
 Transform:
   m_ObjectHideFlags: 0
@@ -1005,8 +992,9 @@ GameObject:
   - component: {fileID: 1648214056}
   - component: {fileID: 1648214055}
   - component: {fileID: 1648214054}
+  - component: {fileID: 1648214057}
   m_Layer: 5
-  m_Name: ItemsAvailable
+  m_Name: ConstructMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1077,7 +1065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1102,6 +1090,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648214052}
   m_CullTransparentMesh: 1
+--- !u!114 &1648214057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648214052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1a500c3186e4e60a337b46373976a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  constructs:
+  - name: mine
+    prefab: {fileID: 5113700842664104566, guid: 977b96b4cd20f4dabb99683f530bc59a,
+      type: 3}
+  - name: habitat
+    prefab: {fileID: 2039013621460887204, guid: d3c875c4c107c4476bf671acc812dfa3,
+      type: 3}
+  - name: storage
+    prefab: {fileID: 4281913887711263275, guid: 81297256b60244d308751b7781ef02d2,
+      type: 3}
+  availableButton: {fileID: 7139131853153575200, guid: a9a1b72bbb1f14781b6ef07c539831ae,
+    type: 3}
+  availableContent: {fileID: 2107741873}
+  selected: none
 --- !u!1 &2107741873
 GameObject:
   m_ObjectHideFlags: 0
