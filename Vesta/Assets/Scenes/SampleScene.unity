@@ -158,8 +158,11 @@ MonoBehaviour:
   - name: mine
     prefab: {fileID: 5113700842664104566, guid: 977b96b4cd20f4dabb99683f530bc59a,
       type: 3}
-  - name: habitat
+  - name: storage
     prefab: {fileID: 4281913887711263275, guid: 81297256b60244d308751b7781ef02d2,
+      type: 3}
+  - name: habitat
+    prefab: {fileID: 2039013621460887204, guid: d3c875c4c107c4476bf671acc812dfa3,
       type: 3}
   availableButton: {fileID: 7139131853153575200, guid: a9a1b72bbb1f14781b6ef07c539831ae,
     type: 3}

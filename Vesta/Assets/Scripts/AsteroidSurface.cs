@@ -10,17 +10,19 @@ public class AsteroidSurface : MonoBehaviour
 
     new Renderer renderer;
 
-    public Vector3 startPosition;
-    public Vector3 startForward;
+    Vector3Int constructPosPotential;
 
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
         renderer.material.color = Color.grey;
-        startPosition = transform.position;
-        startForward = transform.forward;
-        
+        Vector3 startPosition = transform.position;
+        Vector3 startForward = transform.forward;
+        Vector3 tempPosition = startPosition + (startForward * -0.5f);
+        constructPosPotential = new Vector3Int(Mathf.RoundToInt(tempPosition.x), 
+                                            Mathf.RoundToInt(tempPosition.y), 
+                                            Mathf.RoundToInt(tempPosition.z));
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class AsteroidSurface : MonoBehaviour
     }
 
     void OnMouseDown() {
-        GameManager.Instance.AddBuilding(transform, startPosition, startForward);
+        GameManager.Instance.AddBuilding(transform, constructPosPotential);
     }
 
     void OnMouseExit() {

@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 3
   centerRange: 10
-  rotateSpeed: 0
+  rotateSpeed: 1
   cubePrefab: {fileID: 5395195506863304705, guid: 0a38354910b9549838689721d0d779d0,
     type: 3}

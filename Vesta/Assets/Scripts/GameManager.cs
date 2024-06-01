@@ -21,11 +21,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject asteroidPrefab;
 
-    public Dictionary<Vector3, GameObject> buildings = new Dictionary<Vector3, GameObject>();
+    public Dictionary<Vector3, GameObject> buildings = new();
 
-    public List<Construct> constructs = new List<Construct>();
+    public List<Construct> constructs = new();
 
-    public Dictionary<string, GameObject> constructDict = new Dictionary<string, GameObject>();
+    public Dictionary<string, GameObject> constructDict = new();
 
     public Dictionary<string, int> available;
 
@@ -46,9 +46,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Instantiate(asteroidPrefab);
-        available = new Dictionary<string, int>();
-        available["mine"] = 5;
-        available["habitat"] = 2;
+        available = new Dictionary<string, int>
+        {
+            ["mine"] = 3,
+            ["storage"] = 1,
+            ["habitat"] = 1
+        };
     }
 
     void SetSelected(String which) {
@@ -64,13 +67,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddBuilding(Transform surface, Vector3 startPos, Vector3 startForward) {
+    public void AddBuilding(Transform surface, Vector3Int constructPosPotential) {
         GameObject construct = SelectedConstruct();
         if (construct != null) {
-            Vector3 tempPosition = startPos + (startForward * -0.5f);
-            Vector3Int constructPosPotential = new Vector3Int(Mathf.RoundToInt(tempPosition.x), 
-                                            Mathf.RoundToInt(tempPosition.y), 
-                                            Mathf.RoundToInt(tempPosition.z));
             if (!buildings.ContainsKey(constructPosPotential)) {
                 buildings.Add(constructPosPotential, Instantiate(construct, surface));
                 available[selected]--;
