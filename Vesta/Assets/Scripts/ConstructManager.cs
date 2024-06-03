@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -39,9 +38,18 @@ public class ConstructManager : MonoBehaviour
     }
 
 
+    void DeltaAvailable(string which, int amount) {
+        if (!available.ContainsKey(which)) {
+            available[which] = 0;
+        }
+        available[which] += amount;
+        if (available[which] < 0) {
+            available[which] = 0;
+        }
+    }
+
     void SetSelected(string which) {
             selected = which;
-            print(which + " Selected");
     }
 
     public GameObject SelectedConstruct() {
@@ -52,17 +60,16 @@ public class ConstructManager : MonoBehaviour
         }
     }
 
-    public void AddBuilding(Transform surface, Vector3Int constructPosPotential) {
+    public GameObject AddBuilding() {
         GameObject construct = SelectedConstruct();
         if (construct != null) {
-            if (!GameManager.Instance.buildings.ContainsKey(constructPosPotential)) {
-                GameManager.Instance.buildings.Add(constructPosPotential, Instantiate(construct, surface));
-                available[selected]--;
-                if (available[selected] == 0) {
-                    selected = "none";
-                }
-            }
+            DeltaAvailable(selected, -1);
+            if (available[selected] == 0) {
+                selected = "none";
+            }  
+            return construct;   
         }
+        return null;
     }
 
     // Update is called once per frame

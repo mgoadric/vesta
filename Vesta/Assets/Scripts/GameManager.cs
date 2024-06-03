@@ -34,7 +34,12 @@ public class GameManager : MonoBehaviour
         constructManager = constructGUI.GetComponent<ConstructManager>();
     }
 
-    public void AddBuilding(Transform transform, Vector3Int constructPosPotential) {
-        constructManager.AddBuilding(transform, constructPosPotential);
+    public void AddBuilding(Transform surface, Vector3Int constructPosPotential) {
+        if (!buildings.ContainsKey(constructPosPotential)) {
+            GameObject construct = constructManager.AddBuilding();
+            if (construct != null) {
+                buildings.Add(constructPosPotential, Instantiate(construct, surface));
+            }
+        }
     }
 }
